@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sms_sql/fee_detail.dart';
 import 'package:sms_sql/helpandsupport.dart';
 import 'package:sms_sql/library.dart';
-import 'package:sms_sql/placement.dart';
+import 'package:sms_sql/students_info.dart';
 import 'package:sms_sql/result.dart';
 import 'package:sms_sql/syllabus.dart';
 import 'package:sms_sql/timetable.dart';
@@ -18,15 +18,20 @@ class ContentButtons extends StatelessWidget {
   Widget build(context) {
     return Column(
       mainAxisSize: MainAxisSize.max,
+
       children: [
         const SizedBox(
           height: 20,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              width: 45,
+            ),
             Text(
-              'Action',
+              'Quick Action',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontSize: 20,
@@ -35,6 +40,7 @@ class ContentButtons extends StatelessWidget {
             ),
           ],
         ),
+        const Divider(thickness: 2,color: Color.fromARGB(255, 69, 69, 69),),
         const SizedBox(
           height: 20,
         ),
@@ -51,7 +57,7 @@ class ContentButtons extends StatelessWidget {
                         'Placement',
                         Icons.person,
                         Colors.blueAccent,
-                        screen: () => const Placement(),
+                        screen: () => const Students_info(),
                       )),
                       Expanded(
                           child: CustomButton(
