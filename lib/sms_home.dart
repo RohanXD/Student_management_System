@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sms_sql/section1.dart';
 import 'package:sms_sql/section2.dart';
 import 'package:sms_sql/section3.dart';
 import 'package:sms_sql/section4.dart';
@@ -37,11 +38,15 @@ class _SmshomeState extends State<Smshome> {
       body: const Column(mainAxisSize: MainAxisSize.max, children: [
         Section0(),
         SizedBox(
-          height: 30,
+          height: 25,
+        ),
+        Section1(),
+        SizedBox(
+          height: 25,
         ),
         Section2(),
         SizedBox(
-          height: 30,
+          height: 25,
         ),
         Section3(),
       ]),
