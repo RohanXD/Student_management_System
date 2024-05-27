@@ -18,15 +18,20 @@ class ContentButtons extends StatelessWidget {
   Widget build(context) {
     return Column(
       mainAxisSize: MainAxisSize.max,
+
       children: [
         const SizedBox(
           height: 20,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              width: 45,
+            ),
             Text(
-              'Action',
+              'Quick Action',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontSize: 20,
@@ -35,6 +40,7 @@ class ContentButtons extends StatelessWidget {
             ),
           ],
         ),
+        const Divider(thickness: 2,color: Color.fromARGB(255, 69, 69, 69),),
         const SizedBox(
           height: 20,
         ),
