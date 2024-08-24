@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sms_sql/fee_detail.dart';
 import 'package:sms_sql/helpandsupport.dart';
 import 'package:sms_sql/library.dart';
-import 'package:sms_sql/placement.dart';
+import 'package:sms_sql/students_info.dart';
 import 'package:sms_sql/result.dart';
 import 'package:sms_sql/syllabus.dart';
 import 'package:sms_sql/timetable.dart';
@@ -57,7 +57,7 @@ class ContentButtons extends StatelessWidget {
                         'Placement',
                         Icons.person,
                         Colors.blueAccent,
-                        screen: () => const Placement(),
+                        screen: () => const Students_info(),
                       )),
                       Expanded(
                           child: CustomButton(

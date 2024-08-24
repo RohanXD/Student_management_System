@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^6.2.1
   url_launcher: ^6.2.6
   android_intent_plus: ^5.0.2
+  cloud_firestore: ^5.2.1
 
 dev_dependencies:
   flutter_test:
