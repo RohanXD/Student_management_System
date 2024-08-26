@@ -35,21 +35,23 @@ class _SmshomeState extends State<Smshome> {
                 fontWeight: FontWeight.bold)),
       ),
       backgroundColor: const Color.fromARGB(255, 29, 29, 29),
-      body: const Column(mainAxisSize: MainAxisSize.max, children: [
-        Section0(),
-        SizedBox(
-          height: 25,
-        ),
-        Section1(),
-        SizedBox(
-          height: 25,
-        ),
-        Section2(),
-        SizedBox(
-          height: 25,
-        ),
-        Section3(),
-      ]),
+      body: const SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.max, children: [
+          Section0(),
+          SizedBox(
+            height: 25,
+          ),
+          Section1(),
+          SizedBox(
+            height: 25,
+          ),
+          Section2(),
+          SizedBox(
+            height: 25,
+          ),
+          Section3(),
+        ]),
+      ),
       bottomNavigationBar: const Section4(),
     ));
   }

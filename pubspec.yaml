@@ -69,6 +69,7 @@ flutter:
   - assets/sms_image_3.jpg
   - assets/sms_image_4.jpg
   - assets/sms_image_admin.png
+  - assets/new_student.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
