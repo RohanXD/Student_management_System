@@ -1,7 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:sms_sql/addinfo.dart';
-import 'package:sms_sql/show_info.dart';
+import 'package:sms_sql/add.dart';
 import 'package:sms_sql/sms_home.dart';
 
 class Students_info extends StatefulWidget {
@@ -37,78 +37,68 @@ class _Students_infoState extends State<Students_info> {
                 fontWeight: FontWeight.bold)),
       ),
       backgroundColor: const Color.fromARGB(255, 39, 39, 39),
-      body:
-      SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Center(
-                    child: Text("No Lecture",
-                        style: GoogleFonts.roboto(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ))),
-                const SizedBox(
-                  height: 200,
-                ),
-
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 5,
-                        ),
-                        backgroundColor: const Color.fromARGB(255, 39, 39, 39),
-                        side: const BorderSide(
-                            color: Color.fromARGB(255, 39, 39, 39)),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Show_data()));
-                      },
-                      child: const Text(
-                        "Show Data",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                    ),
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 5,
-                        ),
-                        backgroundColor: const Color.fromARGB(255, 39, 39, 39),
-                        side: const BorderSide(
-                            color: Color.fromARGB(255, 39, 39, 39)),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Addinfo()));
-                      },
-                      child: const Text(
-                        "Add Info",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                    ),
-                  ],
-                ),
-              ]),
-        ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('Student')
+            .orderBy('Stu_id', descending: true)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text(snapshot.error.toString()));
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasData) {
+            final stuList = snapshot.data?.docs.reversed.toList();
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: const [
+                  DataColumn(
+                    label: Text('ID', style: TextStyle(color: Colors.white)),
+                  ),
+                  DataColumn(
+                      label: Text(
+                    'Name',
+                    style: TextStyle(color: Colors.white),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Course',
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ],
+                rows: stuList!.map((student) {
+                  final stuData = student.data() as Map<String, dynamic>;
+                  return DataRow(cells: [
+                    DataCell(Text(
+                      stuData['Stu_id'],
+                      style: const TextStyle(color: Colors.grey),
+                    )),
+                    DataCell(Text(
+                      stuData['Stu_name'],
+                      style: const TextStyle(color: Colors.grey),
+                    )),
+                    DataCell(Text(
+                      stuData['Sec'],
+                      style: const TextStyle(color: Colors.grey),
+                    )),
+                  ]);
+                }).toList(),
+              ),
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const add()));
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }
