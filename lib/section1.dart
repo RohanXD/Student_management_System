@@ -40,7 +40,7 @@ class Section1 extends StatelessWidget {
               repText("Emp_ID: Emp_20240101"),
               repText("Name: Professor X"),
               repText("Designation: Coordinator"),
-              repText("Branch: BCA"),
+              repText("Branch: MCA and BCA"),
             ],
           ),
         ],
