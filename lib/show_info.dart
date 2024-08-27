@@ -14,7 +14,7 @@ class Show_data extends StatefulWidget {
 
 class _Show_dataState extends State<Show_data> {
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 19, 19, 19),
@@ -38,28 +38,38 @@ class _Show_dataState extends State<Show_data> {
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('Student').snapshots(),
-        builder: (context,snapshot) {
-          List<Row> stuWidgets=[];
+        builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return (Center(child: Text(snapshot.error.toString())));
+            return Center(child: Text(snapshot.error.toString()));
           }
-          if (snapshot.connectionState==ConnectionState.active) {
-            final stu_s=snapshot.data?.docs.reversed.toList();
-            for(var Student in stu_s!){
-              Row(
-                children: [
-                  Text(Student['stu_id'],),
-                  Text(Student['stu_name']),
-                  Text(Student['stu_age']),
-                  Text(Student['stu_class']),
-                  Text(Student['stu_course']),
-                ],
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasData) {
+            final stu_s = snapshot.data?.docs.reversed.toList();
+            List<Row> stuWidgets = [];
+            for (var Student in stu_s!) {
+              stuWidgets.add(
+                Row(
+                  children: [
+                    Text(Student['stu_id']),
+                    Text(Student['stu_name']),
+                    Text(Student['stu_age']),
+                    Text(Student['stu_class']),
+                    Text(Student['stu_course']),
+                  ],
+                ),
               );
             }
-            return Expanded(child: ListView(children: stuWidgets,));
+            return Flexible(
+              child: ListView(
+                children: stuWidgets,
+              ),
+            );
           }
           return const Center(child: CircularProgressIndicator());
         },
       ),
     );
-  }}
+  }
+}
