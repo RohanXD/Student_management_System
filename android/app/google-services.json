@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "952689714575",
+    "firebase_url": "https://smsfirebase-8b2b6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smsfirebase-8b2b6",
+    "storage_bucket": "smsfirebase-8b2b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952689714575:android:771f7c162e6ba4d08b57fa",
+        "android_client_info": {
+          "package_name": "com.example.sms_sql"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCybGEAOHm4KalXY_ToORD_tOdhAcyVpT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
