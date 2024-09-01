@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 class add extends StatefulWidget {
   const add({super.key});
 
@@ -15,7 +16,7 @@ class _addState extends State<add> {
 
   CollectionReference ref = FirebaseFirestore.instance.collection('Student');
   var ww = 'BCA';
-  var options = ['BCA','MCA'];
+  var options = ['BCA', 'MCA'];
   var _currentItemSelected = "BCA";
   var rool = "1";
 
@@ -32,6 +33,7 @@ class _addState extends State<add> {
       backgroundColor: const Color.fromARGB(255, 19, 19, 19),
       appBar: AppBar(
         backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Add a student',
           style: TextStyle(color: Colors.white),
@@ -45,62 +47,60 @@ class _addState extends State<add> {
               height: 100,
             ),
             Container(
-              decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: const Color.fromARGB(255, 140, 140, 140)),
-              child: TextFormField(
-                  controller: Stu_name,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5.5),
-                    ),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
+                decoration: BoxDecoration(
+                    border: Border.all(),
+                    color: const Color.fromARGB(255, 140, 140, 140)),
+                child: TextFormField(
+                    controller: Stu_name,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(5.5),
                       ),
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.person_add_alt,
-                      color: Colors.black,
-                    ),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 56, 56, 56),
-                    labelText: 'Name',
-                    labelStyle: const TextStyle(color: Colors.white,fontSize: 20
-                    ),
-                  ))
-            ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.person_add_alt,
+                        color: Colors.black,
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 100, 100, 100),
+                      labelText: 'Name',
+                      labelStyle:
+                          const TextStyle(color: Colors.white, fontSize: 20),
+                    ))),
             const SizedBox(
               height: 30,
             ),
             Container(
-              decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: const Color.fromARGB(255, 140, 140, 140)),
-              child: TextFormField(
-                  controller: Stu_id,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5.5),
-                    ),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
+                decoration: BoxDecoration(
+                    border: Border.all(),
+                    color: const Color.fromARGB(255, 140, 140, 140)),
+                child: TextFormField(
+                    controller: Stu_id,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(5.5),
                       ),
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.format_list_numbered_rounded,
-                      color: Colors.black,
-                    ),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 56, 56, 56),
-                    labelText: 'Roll Number',
-                    labelStyle: const TextStyle(color: Colors.white,fontSize: 20
-                    ),
-                  ))
-            ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.format_list_numbered_rounded,
+                        color: Colors.black,
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 100, 100, 100),
+                      labelText: 'Roll Number',
+                      labelStyle:
+                          const TextStyle(color: Colors.white, fontSize: 20),
+                    ))),
             const SizedBox(
               height: 30,
             ),
@@ -193,9 +193,9 @@ class _addState extends State<add> {
               height: 20,
             ),
             MaterialButton(
-              color: const Color.fromARGB(255, 40, 40, 40),
-              shape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              color: const Color.fromARGB(255, 100, 100, 100),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
               onPressed: () {
                 ref.add({
                   'Stu_name': Stu_name.text,

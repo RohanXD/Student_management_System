@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sms_sql/section1.dart';
 import 'package:sms_sql/section2.dart';
@@ -26,7 +27,9 @@ class _SmshomeState extends State<Smshome> {
             color: Colors.white,
             size: 30,
           ),
-          onPressed: () {},
+          onPressed: () {
+            SystemNavigator.pop();
+          },
         ),
         title: Text('Student Management System',
             style: GoogleFonts.oswald(
