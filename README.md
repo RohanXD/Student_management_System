@@ -1,6 +1,6 @@
 # sms_sql
 
-A new Flutter project.
+A Flutter project on Student Management System.
 
 ## Getting Started
 
