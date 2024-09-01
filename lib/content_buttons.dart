@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sms_sql/add.dart';
 import 'package:sms_sql/attendance.dart';
 import 'package:sms_sql/course.dart';
 import 'package:sms_sql/custom_button.dart';
@@ -54,7 +55,7 @@ class ContentButtons extends StatelessWidget {
                     children: [
                       Expanded(
                           child: CustomButton(
-                        'Placement',
+                        'Student\'s Info',
                         Icons.person,
                         Colors.blueAccent,
                         screen: () => const Students_info(),
@@ -64,12 +65,12 @@ class ContentButtons extends StatelessWidget {
                         'Course',
                         Icons.book,
                         Colors.greenAccent,
-                        screen: () => const Course(),
+                        screen: () => const Attendance(),
                       )),
                       Expanded(
                         child: CustomButton(
-                            'Attendance', Icons.school, Colors.lightBlueAccent,
-                            screen: () => const Attendance()),
+                            'Add Info', Icons.person_add_alt_1_outlined, Colors.lightBlueAccent,
+                            screen: () => const add()),
                       ),
                     ]),
                 const SizedBox(
