@@ -36,15 +36,7 @@ class _LectureState extends State<Lecture> {
         ),
         backgroundColor: const Color.fromARGB(255, 39, 39, 39),
         body: Column(mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                  child: Text("No Lecture",
-                      style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      )))
-            ]));
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [Image.asset('assets/MCAT.jpg')]));
   }
 }

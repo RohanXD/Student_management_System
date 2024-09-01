@@ -28,7 +28,7 @@ class _LibraryState extends State<Library> {
                   builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Library',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,

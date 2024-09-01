@@ -28,7 +28,7 @@ class _HelpandSupportState extends State<HelpandSupport> {
                   builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Help and Support',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,

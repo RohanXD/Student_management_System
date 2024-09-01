@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 class add extends StatefulWidget {
   const add({super.key});
 
@@ -204,7 +203,7 @@ class _addState extends State<add> {
                   'Stu-id': Stu_id.text,
                 }).whenComplete(() {
                   Fluttertoast.showToast(
-                    msg: "added",
+                    msg: "Student Added",
                     toastLength: Toast.LENGTH_SHORT,
                     gravity: ToastGravity.BOTTOM,
                     timeInSecForIosWeb: 1,
