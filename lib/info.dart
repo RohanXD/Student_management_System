@@ -15,14 +15,12 @@ class _InfoState extends State<Info> {
     'BCA',
     'MCA',
   ];
-  var _currentItemSelected = "BCA";
   var rool = "1";
 
   var options1 = [
     'A',
     'B',
   ];
-  var _currentItemSelected1 = "A";
   var rool1 = "A";
 
   var temp = [];
