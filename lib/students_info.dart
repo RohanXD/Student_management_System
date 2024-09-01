@@ -16,6 +16,10 @@ class Students_info extends StatefulWidget {
 class _Students_infoState extends State<Students_info> {
   @override
   Widget build(context) {
+    final Stream<QuerySnapshot> users = FirebaseFirestore.instance
+        .collection('Student')
+        .orderBy('Stu_id')
+        .snapshots();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 19, 19, 19),
@@ -38,13 +42,12 @@ class _Students_infoState extends State<Students_info> {
       ),
       backgroundColor: const Color.fromARGB(255, 39, 39, 39),
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('Student')
-            .orderBy('Stu_id', descending: true)
-            .snapshots(),
+        stream: users,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Center(child: Text(snapshot.error.toString()));
+            print('Error: ${snapshot.error}');
+            return Center(
+                child: Text('Something went wrong: ${snapshot.error}'));
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -56,17 +59,18 @@ class _Students_infoState extends State<Students_info> {
               child: DataTable(
                 columns: const [
                   DataColumn(
-                    label: Text('ID', style: TextStyle(color: Colors.white)),
+                    label: Text('ID',
+                        style: TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                   DataColumn(
                       label: Text(
                     'Name',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 20),
                   )),
                   DataColumn(
                       label: Text(
                     'Course',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 20),
                   )),
                 ],
                 rows: stuList!.map((student) {
@@ -74,15 +78,15 @@ class _Students_infoState extends State<Students_info> {
                   return DataRow(cells: [
                     DataCell(Text(
                       stuData['Stu_id'],
-                      style: const TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.white),
                     )),
                     DataCell(Text(
                       stuData['Stu_name'],
-                      style: const TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.white),
                     )),
                     DataCell(Text(
                       stuData['Sec'],
-                      style: const TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.white),
                     )),
                   ]);
                 }).toList(),

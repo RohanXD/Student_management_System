@@ -1,7 +1,6 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'makepdf.dart';
 
 class Attendance extends StatefulWidget {
@@ -18,25 +17,25 @@ class _AttendanceState extends State<Attendance> {
     'MCA',
   ];
   var _currentItemSelected = "BCA";
-  var rool = "1";
+  var rool = " ";
 
   var options1 = [
     'A',
     'B',
   ];
   var _currentItemSelected1 = "A";
-  var rool1 = "A";
+  var rool1 = " ";
 
   var temp = [];
 
   @override
   Widget build(BuildContext context) {
-    final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+    final Stream<QuerySnapshot> usersStream = FirebaseFirestore.instance
         .collection('Student')
         .where(
-      'Sec',
-      isEqualTo: ww,
-    )
+          'Sec',
+          isEqualTo: ww,
+        )
         .snapshots();
 
     return SafeArea(
@@ -63,12 +62,12 @@ class _AttendanceState extends State<Attendance> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
+              Text(
                 'Attendance',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.white
-                ),
+                style: GoogleFonts.oswald(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 width: 15,
@@ -143,14 +142,12 @@ class _AttendanceState extends State<Attendance> {
             ],
           ),
         ),
-        body:
-
-        StreamBuilder(
-          stream: _usersStream,
+        body: StreamBuilder(
+          stream: usersStream,
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
-              return const Text("something is wrong");
+              return const Text("Something is wrong");
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -166,42 +163,39 @@ class _AttendanceState extends State<Attendance> {
               child: ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (_, index) {
+                  var doc = snapshot.data!.docs[index];
+                  var stuName = doc['Stu_name'];
+                  var stuId = doc['Stu-id'];
+
                   return InkWell(
                     onTap: () {
-                      // 1019
                       setState(() {
-                        if (temp.contains(
-                            snapshot.data!.docChanges[index].doc['Stu_name'])) {
-                          temp.remove(
-                              snapshot.data!.docChanges[index].doc['Stu_name']);
+                        if (temp.contains(stuName)) {
+                          temp.remove(stuName);
                         } else {
-                          temp.add(
-                              snapshot.data!.docChanges[index].doc['Stu_name']);
+                          temp.add(stuName);
                         }
                       });
                       print(temp);
-                      setState(() {});
                     },
                     child: Card(
                       child: ListTile(
-                        title:
-                        Text(snapshot.data!.docChanges[index].doc['Stu_name']),
+                        title: Text(
+                          '$stuId - $stuName', // Display both fields
+                          style: const TextStyle(fontSize: 20),
+                        ),
                         trailing: Container(
                           height: 40,
                           width: 100,
                           decoration: BoxDecoration(
-                            color: temp.contains(snapshot
-                                .data!.docChanges[index].doc['Stu_name'])
-                                ? const Color.fromARGB(255, 248, 20, 4)
-                                : const Color.fromARGB(255, 0, 228, 8),
+                            color: temp.contains(stuName)
+                                ? const Color.fromARGB(255, 213, 213, 213)
+                                : const Color.fromARGB(255, 59, 59, 59),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Center(
                             child: Text(
-                              temp.contains(snapshot
-                                  .data!.docChanges[index].doc['Stu_name'])
-                                  ? 'Remove'
-                                  : 'add',
+                              temp.contains(stuName) ? 'Remove' : 'Add',
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

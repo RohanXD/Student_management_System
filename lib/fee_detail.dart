@@ -28,7 +28,7 @@ class _FeeDetailsState extends State<FeeDetails> {
                   builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Fee Details',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,

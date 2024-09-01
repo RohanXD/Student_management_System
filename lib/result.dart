@@ -28,7 +28,7 @@ class _ResultState extends State<Result> {
                   builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Examination',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,
@@ -38,14 +38,7 @@ class _ResultState extends State<Result> {
         body: Column(mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                  child: Text("No Result Data",
-
-                      style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      )))
+              Image.asset('assets/exam.png')
             ]));
   }
 }

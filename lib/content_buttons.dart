@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sms_sql/add.dart';
 import 'package:sms_sql/attendance.dart';
-import 'package:sms_sql/course.dart';
 import 'package:sms_sql/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sms_sql/fee_detail.dart';
 import 'package:sms_sql/helpandsupport.dart';
 import 'package:sms_sql/library.dart';
-import 'package:sms_sql/students_info.dart';
+import 'package:sms_sql/info.dart';
 import 'package:sms_sql/result.dart';
 import 'package:sms_sql/syllabus.dart';
 import 'package:sms_sql/timetable.dart';
@@ -58,12 +57,12 @@ class ContentButtons extends StatelessWidget {
                         'Student\'s Info',
                         Icons.person,
                         Colors.blueAccent,
-                        screen: () => const Students_info(),
+                        screen: () => const Info(),
                       )),
                       Expanded(
                           child: CustomButton(
-                        'Course',
-                        Icons.book,
+                        'Attendance',
+                        Icons.bar_chart,
                         Colors.greenAccent,
                         screen: () => const Attendance(),
                       )),
@@ -90,7 +89,7 @@ class ContentButtons extends StatelessWidget {
                       ),
                       Expanded(
                           child: CustomButton(
-                              'Result', Icons.receipt_long_rounded, Colors.cyan,
+                              'Examination', Icons.receipt_long_rounded, Colors.cyan,
                               screen: () => const Result())),
                     ]),
                 const SizedBox(

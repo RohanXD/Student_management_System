@@ -1,6 +1,7 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_sql/sms_home.dart';
+import 'package:sms_sql/syllabusmca.dart';
 
 class Syllabus extends StatefulWidget {
   const Syllabus({super.key});
@@ -24,27 +25,61 @@ class _SyllabusState extends State<Syllabus> {
               size: 30,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => const Smshome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Syllabus',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold)),
+          actions: [
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Syllabus()));
+
+              },
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: Color.fromARGB(255, 19, 19, 19)),
+              ),
+              child: Text(
+                'BCA',
+                style: GoogleFonts.oswald(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            const SizedBox(width: 20,),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Syllabusmca()));
+
+              },
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: Color.fromARGB(255, 19, 19, 19)),
+              ),
+              child: Text(
+                'MCA',
+                style: GoogleFonts.oswald(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ],
         ),
         backgroundColor: const Color.fromARGB(255, 39, 39, 39),
-        body: Column(mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                  child: Text("No Syllabus Data",
-                      style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      )))
-            ]));
+        body:SingleChildScrollView(
+          child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset('assets/BCA.jpg',)
+              ]),
+        ));
   }
 }

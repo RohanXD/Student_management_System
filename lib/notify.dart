@@ -29,7 +29,7 @@ class _NotifyState extends State<Notify> {
                   builder: (context) => const Smshome()));
             },
           ),
-          title: Text('Student Management System',
+          title: Text('Notification',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,
@@ -40,7 +40,7 @@ class _NotifyState extends State<Notify> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                  child: Text("No Notification Data",
+                  child: Text("No Notification ",
                       style: GoogleFonts.roboto(
                         color: Colors.white,
                         fontSize: 24,

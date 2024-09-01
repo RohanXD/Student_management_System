@@ -42,6 +42,9 @@ dependencies:
   fluttertoast: ^8.2.8
   printing: ^5.12.0
   pdf: ^3.11.1
+  advance_pdf_viewer: ^2.0.1
+  flutter_pdfview: ^1.3.2
+  firebase_core: ^3.4.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +76,12 @@ flutter:
   - assets/sms_image_4.jpg
   - assets/sms_image_admin.png
   - assets/new_student.png
+  - assets/BCA.jpg
+  - assets/MCA.jpg
+  - assets/exam.png
+  - assets/MCAT.jpg
+  - assets/BCAT.jpg
+  - assets/prof.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
