@@ -2,16 +2,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_sql/sms_home.dart';
 
-class Course extends StatefulWidget {
-  const Course({super.key});
+class Exam extends StatefulWidget {
+  const Exam({super.key});
 
   @override
-  State<Course> createState() {
-    return _CourseState();
+  State<Exam> createState() {
+    return _ExamState();
   }
 }
 
-class _CourseState extends State<Course> {
+class _ExamState extends State<Exam> {
   @override
   Widget build(context) {
     return Scaffold(
@@ -24,11 +24,11 @@ class _CourseState extends State<Course> {
               size: 30,
             ),
             onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-          builder: (context) => const Smshome()));
-          },
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => const Smshome()));
+            },
           ),
-          title: Text('Student Management System',
+          title: Text('Examination',
               style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 24,
@@ -38,15 +38,7 @@ class _CourseState extends State<Course> {
         body: Column(mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                  child: Text("No Course",
-                      style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      )))
-            ]
-        )
-    );
+              Image.asset('assets/exam.png')
+            ]));
   }
 }

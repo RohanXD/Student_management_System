@@ -1,4 +1,3 @@
-
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
@@ -8,7 +7,7 @@ import 'package:printing/printing.dart';
 class reportt extends StatefulWidget {
   List list;
   String clas;
-  reportt({required this.list, required this.clas});
+  reportt({super.key, required this.list, required this.clas});
   @override
   State<reportt> createState() => _reporttState(list: list, clas: clas);
 }
@@ -67,7 +66,7 @@ class _reporttState extends State<reportt> {
               ),
               pw.Text(
                 'Attendance sheet',
-                style: pw.TextStyle(
+                style: const pw.TextStyle(
                   fontSize: 25,
                 ),
               ),
@@ -80,13 +79,13 @@ class _reporttState extends State<reportt> {
                   pw.Row(children: [
                     pw.Text(
                       'Date :',
-                      style: pw.TextStyle(
+                      style: const pw.TextStyle(
                         fontSize: 20,
                       ),
                     ),
                     pw.Text(
                       DateTime.now().toString(),
-                      style: pw.TextStyle(
+                      style: const pw.TextStyle(
                         fontSize: 20,
                       ),
                     ),
@@ -95,13 +94,13 @@ class _reporttState extends State<reportt> {
                     children: [
                       pw.Text(
                         'Class : ',
-                        style: pw.TextStyle(
+                        style: const pw.TextStyle(
                           fontSize: 25,
                         ),
                       ),
                       pw.Text(
                         clas,
-                        style: pw.TextStyle(
+                        style: const pw.TextStyle(
                           fontSize: 25,
                         ),
                       ),
@@ -113,7 +112,7 @@ class _reporttState extends State<reportt> {
                 height: 20,
               ),
               pw.Table(
-                defaultColumnWidth: pw.FixedColumnWidth(120.0),
+                defaultColumnWidth: const pw.FixedColumnWidth(120.0),
                 border: pw.TableBorder.all(
                   style: pw.BorderStyle.solid,
                   width: 2,
@@ -125,7 +124,7 @@ class _reporttState extends State<reportt> {
                         children: [
                           pw.Text(
                             'index',
-                            style: pw.TextStyle(
+                            style: const pw.TextStyle(
                               fontSize: 20.0,
                             ),
                           ),
@@ -135,7 +134,7 @@ class _reporttState extends State<reportt> {
                         children: [
                           pw.Text(
                             'Name',
-                            style: pw.TextStyle(
+                            style: const pw.TextStyle(
                               fontSize: 20.0,
                             ),
                           ),
@@ -147,7 +146,7 @@ class _reporttState extends State<reportt> {
                 itemCount: list.length,
                 itemBuilder: (_, index) {
                   return pw.Table(
-                    defaultColumnWidth: pw.FixedColumnWidth(120.0),
+                    defaultColumnWidth: const pw.FixedColumnWidth(120.0),
                     border: pw.TableBorder.all(
                       // color: pw.Colors.black,
                         style: pw.BorderStyle.solid,
@@ -159,7 +158,7 @@ class _reporttState extends State<reportt> {
                             pw.Text(
                               index.toString(),
                               textAlign: pw.TextAlign.center,
-                              style: pw.TextStyle(
+                              style: const pw.TextStyle(
                                 fontSize: 20.0,
                               ),
                             ),
@@ -169,7 +168,7 @@ class _reporttState extends State<reportt> {
                               pw.Text(
                                 list[index],
                                 textAlign: pw.TextAlign.center,
-                                style: pw.TextStyle(fontSize: 20.0),
+                                style: const pw.TextStyle(fontSize: 20.0),
                               ),
                             ],
                           ),

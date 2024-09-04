@@ -7,7 +7,7 @@ import 'package:sms_sql/fee_detail.dart';
 import 'package:sms_sql/helpandsupport.dart';
 import 'package:sms_sql/library.dart';
 import 'package:sms_sql/info.dart';
-import 'package:sms_sql/result.dart';
+import 'package:sms_sql/exam.dart';
 import 'package:sms_sql/syllabus.dart';
 import 'package:sms_sql/timetable.dart';
 
@@ -90,7 +90,7 @@ class ContentButtons extends StatelessWidget {
                       Expanded(
                           child: CustomButton(
                               'Examination', Icons.receipt_long_rounded, Colors.cyan,
-                              screen: () => const Result())),
+                              screen: () => const Exam())),
                     ]),
                 const SizedBox(
                   height: 20,
