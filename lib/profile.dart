@@ -28,7 +28,7 @@ class _ProfileState extends State<Profile> {
                 builder: (context) => const Smshome()));
           },
         ),
-        title: Text('Student Management System',
+        title: Text('Profile',
             style: GoogleFonts.oswald(
                 color: Colors.white,
                 fontSize: 24,
