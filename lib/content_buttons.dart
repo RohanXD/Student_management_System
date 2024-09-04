@@ -110,7 +110,7 @@ class ContentButtons extends StatelessWidget {
                       ),
                       Expanded(
                           child: CustomButton(
-                              'Syllabus', Icons.book_online, Colors.green,
+                              'Syllabus and \n     Subject', Icons.book_online, Colors.green,
                               screen: () => const Syllabus())),
                     ]),
                 const SizedBox(

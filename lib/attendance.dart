@@ -59,6 +59,7 @@ class _AttendanceState extends State<Attendance> {
         ),
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 29, 29, 29),
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

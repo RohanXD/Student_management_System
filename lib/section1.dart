@@ -21,29 +21,32 @@ class Section1 extends StatelessWidget {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => const Profile()));
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-              ClipOval(
-                child: Image.asset(
-                  'assets/sms_image_admin.png',
-                  height: 75,
-                  width: 75,
-                  fit: BoxFit.cover,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+                ClipOval(
+                  child: Image.asset(
+                    'assets/sms_image_admin.png',
+                    height: 75,
+                    width: 75,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-          const VerticalDivider(color: Colors.white, thickness: 2,width: 20,),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              repText("Emp_ID: Emp_20240101"),
-              repText("Name: Professor X"),
-              repText("Designation: Coordinator"),
-              repText("Branch: MCA and BCA"),
-            ],
-          ),
-        ],
+            const VerticalDivider(color: Colors.white, thickness: 2,width: 20,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                repText("Emp_ID: Emp_20240101"),
+                repText("Name: Professor X"),
+                repText("Designation: Coordinator"),
+                repText("Branch: MCA and BCA"),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
